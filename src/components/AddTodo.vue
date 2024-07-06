@@ -83,9 +83,12 @@
 
   const emit = defineEmits(["todo-added", "todo-done"]);
 
+  const id = ref(1);
+
   function handleTodoAdded() {
     if (todoName.value.trim() !== "") {
       emit("todo-added", {
+        id: id.value++,
         todoName: todoName.value,
         todoCategory: todoCategory.value,
         todoDone: false,

@@ -10,7 +10,9 @@
         : 'bg-pink-50 text-pink-700 ring-pink-600'
     } ring-1   py-3 px-4 text-[18px] rounded-lg select-none ${
       index == todos.length - 1 ? 'mb-0' : 'mb-6'
-    } font-semibold`"
+    } font-semibold
+hover:cursor-pointer
+  `"
     @click="ToggleDone(todo)"
   >
     <span :class="`${todo.todoDone ? 'line-through text-gray-400' : ''}`">
