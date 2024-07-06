@@ -1,9 +1,11 @@
 <template>
   <main class="container subpixel-antialiased mx-auto max-w-[650px]">
-    <h3 class="text-center text-5xl mt-10 text-blue-700 lato-bold font-[800]">
+    <h3
+      class="text-center text-3xl md:text-5xl mt-10 text-blue-700 lato-bold font-[800]"
+    >
       Vue Js Todo App
     </h3>
-    <div class="bg-white drop-shadow-md p-6 rounded-xl mt-10">
+    <div class="bg-white drop-shadow-md mx-8 md:mx-0 p-6 rounded-xl mt-10">
       <!-- Start App Header -->
       <section class="greeting">
         <h2 class="text-2xl font-bold text-blue-700">
@@ -20,7 +22,7 @@
       <!-- Start Create Todo -->
       <section class="create-todo">
         <div class="mt-6">
-          <div class="flex gap-4">
+          <div class="flex flex-col md:flex-row gap-4">
             <input
               type="text"
               id="add-task"
@@ -31,7 +33,7 @@
             />
             <div class="grid place-items-center">
               <div
-                class="grid w-[15rem] grid-cols-2 gap-2 rounded-xl bg-gray-200 p-2"
+                class="grid w-full md:w-[15rem] grid-cols-2 gap-2 rounded-xl bg-gray-200 p-2"
               >
                 <div>
                   <input
@@ -68,10 +70,10 @@
             </div>
           </div>
           <button
-            class="bg-blue-700 mt-6 w-full rounded-lg hover:bg-blue-600 transition duration-200 font-semibold text-white block py-3 px-6"
+            class="bg-blue-700 mt-4 md:mt-6 w-full rounded-lg hover:bg-blue-600 transition duration-200 font-semibold text-white block py-2 md:py-3 px-6"
             @click.prevent="handleTodoAdded"
           >
-            Add Task
+            Add Todo
           </button>
           <!-- End Create Todo -->
           <!-- Start View Todos -->
@@ -87,7 +89,7 @@
                 todo.todoCategory == 'Personal'
                   ? 'bg-blue-50 text-blue-700 ring-blue-700'
                   : 'bg-pink-50 text-pink-700 ring-pink-600'
-              } ring-1   py-3 px-4 text-[18px] rounded-lg select-none ${
+              } ring-1  py-2 md:py-3 px-4 text-[18px] rounded-lg select-none ${
                 index == todos.length - 1 ? 'mb-0' : 'mb-6'
               } font-semibold
                 hover:cursor-pointer`"
@@ -97,13 +99,13 @@
                   @click="todo.todoDone = !todo.todoDone"
                   :class="`${
                     todo.todoDone ? 'line-through text-gray-400' : ''
-                  }`"
+                  } truncate max-w-[150px] md:max-w-[400px] text-[14px] md:text-[16px] block`"
                 >
                   {{ todo.todoName }}
                 </span>
               </div>
               <button
-                class="px-2 py-1 rounded-md text-white text-[16px] bg-red-600 hover:bg-red-700 transition duration-200"
+                class="px-2 py-[2px] md:py-1 rounded-md text-white text-[14px] md:text-[16px] bg-red-600 hover:bg-red-700 transition duration-200"
                 @click="deleteTodo(index)"
               >
                 Delete
